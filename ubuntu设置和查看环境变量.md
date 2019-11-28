@@ -1,0 +1,1 @@
+ubuntu设置和查看环境变量：https://blog.csdn.net/White_Idiot/article/details/78253004
