@@ -52,8 +52,9 @@ make-kpkg -j8 --initrd kernel_image kernel_headers
 cd /usr/src/
 dpkg –i *.deb
 
+sudo vim /etc/default/grub
+把GRUB_HIDDEN_TIMEOUT=0注释掉，这样开机的时候才能进入grub界面
 update-grub
-
 ```
 
 6、重启进入新内核
