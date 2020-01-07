@@ -1,15 +1,16 @@
-### 一、下载linux内核（我用的是linux4.13.1）
+### 一、下载linux内核（我用的是linux4.9.208）
 
 下载地址：https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/
 
 ###二、开始编译
 
-1、进入超级用户，把linux-4.13.1.tar.xz/usr/src中
+1、进入超级用户，把linux-4.9.208.tar.xz/usr/src中
 
 2、解压
 
 ```
- tar –zxvf linux-4.13.1.tar.gz
+ xz -d linux-4.9.208.tar.xz
+ tar –zxvf linux-4.9.208.tar
 ```
 
 3、安装环境
@@ -31,7 +32,7 @@ apt-get install libssl-dev
 先执行以下命令，用以清除目录下所有配置文件和以前生成内核时所产生的中间文件。
 
 ```
-cd linux-4.13.1
+cd linux-4.9.208
 make mrproper	//清除目录下所有配置文件和以前生成内核时所产生的中间文件。
 cp /usr/src/linux-headers-‘`uname -r‘`/.config ./	// 把当前系统的配置文件复制到linux-4.13.1目录下
 make menuconfig
@@ -44,7 +45,7 @@ make menuconfig
 ```
 make-kpkg clean
 
-make-kpkg --initrd kernel_image kernel_headers
+make-kpkg -j8 --initrd kernel_image kernel_headers
 ```
 
 ```
